@@ -1,5 +1,8 @@
 import 'dart:math';
 
+import 'package:candlesticks/src/utils/extensions.dart';
+import 'package:intl/intl.dart';
+
 class HelperFunctions {
   static double log10(num x) => log(x) / ln10;
 
@@ -21,15 +24,20 @@ class HelperFunctions {
       return "${price.toStringAsFixed(0)}";
   }
 
+  // static String priceToString(double price) {
+  //   return price > 1000
+  //       ? price.toStringAsFixed(2)
+  //       : price > 100
+  //           ? price.toStringAsFixed(3)
+  //           : price > 10
+  //               ? price.toStringAsFixed(4)
+  //               : price > 1
+  //                   ? price.toStringAsFixed(5)
+  //                   : price.toStringAsFixed(7);
+  // }
+
   static String priceToString(double price) {
-    return price > 1000
-        ? price.toStringAsFixed(2)
-        : price > 100
-            ? price.toStringAsFixed(3)
-            : price > 10
-                ? price.toStringAsFixed(4)
-                : price > 1
-                    ? price.toStringAsFixed(5)
-                    : price.toStringAsFixed(7);
+      final value = price / 1000;
+      return value.toStringAsFixed(2).replaceAll(".", ",");
   }
 }

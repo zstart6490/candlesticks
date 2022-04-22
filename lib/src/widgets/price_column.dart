@@ -78,8 +78,8 @@ class _PriceColumnState extends State<PriceColumn> {
                             ),
                             Expanded(
                               child: Text(
-                                "${HelperFunctions.priceToString(widget.high - widget.priceScale * i)}",
-                                textAlign: TextAlign.center,
+                                "  ${HelperFunctions.priceToString(widget.high - widget.priceScale * i)}",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
                                   color: Theme.of(context).scaleNumbersColor,
                                   fontSize: 14,
@@ -104,22 +104,20 @@ class _PriceColumnState extends State<PriceColumn> {
                 child: Row(
                   children: [
                     Container(
+                      padding:EdgeInsets.symmetric(vertical: 2) ,
                       color: widget.lastCandle.isBull
                           ? Theme.of(context).primaryGreen
                           : Theme.of(context).primaryRed,
-                      child: Center(
-                        child: Text(
-                          HelperFunctions.priceToString(
-                              widget.lastCandle.close),
-                          style: TextStyle(
-                            color: Theme.of(context).currentPriceColor,
-                            fontSize: 14,
-                          ),
-                          textAlign: TextAlign.center,
+                      child: Text(
+                        "  ${HelperFunctions.priceToString(widget.lastCandle.close)}",
+                        style: TextStyle(
+                          color: Theme.of(context).currentPriceColor,
+                          fontSize: 14,
                         ),
+                        textAlign: TextAlign.left,
                       ),
                       width: PRICE_BAR_WIDTH,
-                      height: 20,
+
                     ),
                   ],
                 ),

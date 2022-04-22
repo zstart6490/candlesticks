@@ -63,7 +63,7 @@ class _TimeRowState extends State<TimeRow> {
   /// Day/month text widget
   Text _monthDayText(DateTime _time, Color color) {
     return Text(
-      numberFormat(_time.month) + "/" + numberFormat(_time.day),
+      numberFormat(_time.day) + "/" + numberFormat(_time.month),
       style: TextStyle(
         color: color,
         fontSize: 14,
@@ -121,11 +121,13 @@ class _TimeRowState extends State<TimeRow> {
                       color: Theme.of(context).grayColor,
                     ),
                   ),
-                  dif.compareTo(Duration(days: 1)) > 0
-                      ? _monthDayText(
-                          _time, Theme.of(context).scaleNumbersColor)
-                      : _hourMinuteText(
-                          _time, Theme.of(context).scaleNumbersColor),
+                  _monthDayText(
+                      _time, Theme.of(context).scaleNumbersColor)
+                  // dif.compareTo(Duration(days: 1)) > 0
+                  //     ? _monthDayText(
+                  //         _time, Theme.of(context).scaleNumbersColor)
+                  //     : _hourMinuteText(
+                  //         _time, Theme.of(context).scaleNumbersColor),
                 ],
               );
             },
