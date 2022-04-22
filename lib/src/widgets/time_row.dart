@@ -66,7 +66,7 @@ class _TimeRowState extends State<TimeRow> {
       numberFormat(_time.month) + "/" + numberFormat(_time.day),
       style: TextStyle(
         color: color,
-        fontSize: 12,
+        fontSize: 14,
       ),
     );
   }
@@ -77,7 +77,7 @@ class _TimeRowState extends State<TimeRow> {
       numberFormat(_time.hour) + ":" + numberFormat(_time.minute),
       style: TextStyle(
         color: color,
-        fontSize: 12,
+        fontSize: 14,
       ),
     );
   }
@@ -142,7 +142,7 @@ class _TimeRowState extends State<TimeRow> {
                         dateFormatter(widget.indicatorTime!),
                         style: TextStyle(
                           color: Theme.of(context).hoverIndicatorTextColor,
-                          fontSize: 12,
+                          fontSize: 14,
                         ),
                       ),
                     ),
