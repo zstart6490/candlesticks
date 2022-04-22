@@ -153,6 +153,7 @@ class _MobileChartState extends State<MobileChart> {
                         widget.candles.length - 1)];
                 return Container(
                   color: Theme.of(context).background,
+                  margin: const EdgeInsets.only(bottom: 10),
                   child: Stack(
                     children: [
                       TimeRow(
@@ -162,10 +163,10 @@ class _MobileChartState extends State<MobileChart> {
                         indicatorTime: currentCandle?.date,
                         index: widget.index,
                       ),
+
                       Column(
                         children: [
                           Expanded(
-                            flex: 3,
                             child: Stack(
                               children: [
                                 PriceColumn(
