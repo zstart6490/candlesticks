@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<List<Candle>> fetchCandles() async {
     final uri = Uri.parse(
-        "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1h");
+        "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d");
     final res = await http.get(uri);
     return (jsonDecode(res.body) as List<dynamic>)
         .map((e) => Candle.fromJson(e))

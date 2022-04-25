@@ -105,13 +105,19 @@ class _TimeRowState extends State<TimeRow> {
         children: [
           ListView.builder(
             physics: NeverScrollableScrollPhysics(),
-            itemCount: math.max(widget.candles.length, 1000),
+            itemCount: widget.candles.length, // math.max(widget.candles.length, 1000),
             scrollDirection: Axis.horizontal,
             itemExtent: step * widget.candleWidth,
             controller: _scrollController,
             reverse: true,
             itemBuilder: (context, index) {
               DateTime _time = _timeCalculator(step, index, dif);
+              if (index == 0){
+                 return  SizedBox(
+                   height: 0,
+                   width: 0,
+                 );
+              }
               return Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -121,13 +127,14 @@ class _TimeRowState extends State<TimeRow> {
                       color: Theme.of(context).grayColor,
                     ),
                   ),
-                  _monthDayText(
-                      _time, Theme.of(context).scaleNumbersColor)
-                  // dif.compareTo(Duration(days: 1)) > 0
-                  //     ? _monthDayText(
-                  //         _time, Theme.of(context).scaleNumbersColor)
-                  //     : _hourMinuteText(
-                  //         _time, Theme.of(context).scaleNumbersColor),
+                  // _monthDayText(
+                  //     _time, Theme.of(context).scaleNumbersColor)
+
+                  dif.compareTo(Duration(days: 1)) > 0
+                      ? _monthDayText(
+                          _time, Theme.of(context).scaleNumbersColor)
+                      : _hourMinuteText(
+                          _time, Theme.of(context).scaleNumbersColor),
                 ],
               );
             },
