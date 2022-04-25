@@ -310,15 +310,14 @@ class _MobileChartState extends State<MobileChart> {
                                     thickness: 0.5,
                                   ),
                                   Container(
-                                    color: Theme.of(context)
-                                        .hoverIndicatorBackgroundColor,
+                                    color: Theme.of(context).hoverIndicatorBackgroundColor,
                                     child: Center(
                                       child: Text(
-                                        longPressY! < maxHeight * 0.75
+                                        longPressY! < maxHeight * 1
                                             ? HelperFunctions.priceToString(
                                                 high -
                                                     (longPressY! - 20) /
-                                                        (maxHeight * 0.75 -
+                                                        (maxHeight * 1 -
                                                             40) *
                                                         (high - low))
                                             : HelperFunctions.addMetricPrefix(
@@ -327,13 +326,12 @@ class _MobileChartState extends State<MobileChart> {
                                                     (1 -
                                                         (longPressY! -
                                                                 maxHeight *
-                                                                    0.75 -
+                                                                    1 -
                                                                 10) /
-                                                            (maxHeight * 0.25 -
+                                                            (maxHeight * 0 -
                                                                 10))),
                                         style: TextStyle(
-                                          color: Theme.of(context)
-                                              .hoverIndicatorTextColor,
+                                          color: Theme.of(context).hoverIndicatorTextColor,
                                           fontSize: 12,
                                         ),
                                       ),
